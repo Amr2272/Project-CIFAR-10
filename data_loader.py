@@ -7,11 +7,8 @@ def load_data():
     (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
     X = np.concatenate([x_train, x_test], axis=0)
     y = np.concatenate([y_train, y_test], axis=0).flatten()
-    X_flattened = X.reshape(X.shape[0], -1) 
-    df = pd.DataFrame(X_flattened)
-    df['label'] = y
     
-    return df
+    return X,y
 
 def Labels(y):
     print("Number of Lables : ",len(np.unique(y)))
@@ -25,6 +22,7 @@ def Normalize(x_train, x_test):
     x_train=x_train/mx
     x_test=x_test/mx
     return x_train,x_test
+
 
 
 
