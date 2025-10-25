@@ -23,10 +23,7 @@ def predict_new_image(image, model_filename='model.keras'):
 def run_streamlit_app():
     st.title("CIFAR-10 Image Classifier")
 
-    st.sidebar.header("Model Operations")
-    if st.sidebar.button("1. Train and Save Model"):
-        st.subheader("Training Model...")
-        main_train_and_evaluate()
+
 
     st.header("2. Predict New Image")
 
@@ -110,6 +107,7 @@ def main_train_and_evaluate():
 
 if __name__ == "__main__":
     run_streamlit_app()
+
 
 
 
