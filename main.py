@@ -61,8 +61,6 @@ def run_streamlit_app():
 @st.cache_data
 def load_data_and_preprocess():
     X,y = data_loader.load_data()
-    X = df.drop('label', axis=1).values.reshape(-1, 32, 32, 3)
-    y = df['label'].values
     x_train, x_test, y_train, y_test = data_loader.split_data(X, y)
     x_train_norm, x_test_norm = data_loader.Normalize(x_train, x_test)
     return X, y, x_train, x_test, y_train, y_test, x_train_norm, x_test_norm
@@ -112,4 +110,5 @@ def main_train_and_evaluate():
 
 if __name__ == "__main__":
     run_streamlit_app()
+
 
