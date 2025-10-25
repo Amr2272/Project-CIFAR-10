@@ -67,7 +67,7 @@ def load_data_and_preprocess():
 
 def main_train_and_evaluate():
     """Performs the full model training and evaluation pipeline."""
-     x_train, x_test, y_train, y_test, x_train_norm, x_test_norm = load_data_and_preprocess()
+    x_train, x_test, y_train, y_test, x_train_norm, x_test_norm = load_data_and_preprocess()
 
     st.write(f"Train samples: {x_train.shape[0]}, Test samples: {x_test.shape[0]}")
 
@@ -110,6 +110,7 @@ def main_train_and_evaluate():
 
 if __name__ == "__main__":
     run_streamlit_app()
+
 
 
 
