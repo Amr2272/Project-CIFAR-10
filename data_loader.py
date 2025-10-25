@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 def load_data():
-    df=pd.read_csv(r'C:\Users\Amr\Desktop\Project  CIFAR-10\Dataset\CIFAR-10.csv')
+    df = pd.read_csv('Dataset/CIFAR-10.csv')
 
     X = df.drop('label', axis=1).values
     y = df['label'].values
@@ -22,3 +22,4 @@ def Normalize(x_train, x_test):
     x_train=x_train/mx
     x_test=x_test/mx
     return x_train,x_test
+
