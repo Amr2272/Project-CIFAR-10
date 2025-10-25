@@ -4,11 +4,13 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 
 def load_data():
-    df =  tf.keras.datasets.fashion_mnist.load_data()
-
-    X = df.drop('label', axis=1).values
-    y = df['label'].values
-    X = X.reshape(-1, 32, 32,3)
+    (x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+    X = np.concatenate([x_train, x_test], axis=0)
+    y = np.concatenate([y_train, y_test], axis=0).flatten()
+    X_flattened = X.reshape(X.shape[0], -1) 
+    df = pd.DataFrame(X_flattened)
+    df['label'] = y
+    
     return df
 
 def Labels(y):
@@ -23,5 +25,6 @@ def Normalize(x_train, x_test):
     x_train=x_train/mx
     x_test=x_test/mx
     return x_train,x_test
+
 
 
