@@ -60,9 +60,11 @@ def correct_pre(x_test,y_test,y_predicted):
 
 def preprocess_image(image):
 
-    img = image.convert('RGB')
-    img = img.resize((32, 32))
-    img_array = np.array(img)
-    img_array = img_array / 255.0
-    img_array = img_array.reshape(1, 32, 32, 3)
-    return img_array
+    image = image.resize((32, 32)) 
+    image_array = np.array(image)
+    if image_array.shape[-1] == 4:
+        image_array = image_array[..., :3]
+        
+    image_array = image_array / 255.0
+    image_array = np.expand_dims(image_array, axis=0)
+    return image_array
