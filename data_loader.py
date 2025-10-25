@@ -1,9 +1,10 @@
 import numpy as np 
 import pandas as pd 
+import tensorflow as tf
 from sklearn.model_selection import train_test_split
 
 def load_data():
-    df = pd.read_csv('Dataset/CIFAR-10.csv')
+    df =  tf.keras.datasets.fashion_mnist.load_data()
 
     X = df.drop('label', axis=1).values
     y = df['label'].values
@@ -22,4 +23,5 @@ def Normalize(x_train, x_test):
     x_train=x_train/mx
     x_test=x_test/mx
     return x_train,x_test
+
 
